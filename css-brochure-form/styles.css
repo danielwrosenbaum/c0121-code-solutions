@@ -34,6 +34,10 @@ select {
   height: 35px;
   margin-top: 1px;
   margin-bottom: 10px;
+}
+
+input::placeholder {
+  color: rgb(199, 195, 195);
   font-family: 'AtlasGrotesk', sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -42,6 +46,10 @@ select {
 
 select {
   background-color: rgb(231, 231, 231);
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  src: url('BrandonGrotesque-Regular.woff2') format('woff2');
 }
 
 button {
