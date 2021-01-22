@@ -17,8 +17,8 @@
 
   /* your code here */
   position: absolute;
-  left: 230px;
-  bottom: 230px;
+  right: 1rem;
+  top: 1rem;
 }
 
 .joke {
