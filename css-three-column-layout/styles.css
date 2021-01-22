@@ -1,0 +1,64 @@
+
+body {
+  background-color: dodgerblue;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+h2,
+h3 {
+  font-style: normal;
+  font-weight: 400;
+}
+
+.container {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.column-full {
+  margin-top: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+.column-third {
+  width: calc(100% / 3);
+  text-align: center;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.info {
+  font-weight: 100;
+  font-size: 80%;
+}
+
+.pics {
+  width: 75%;
+  height: 75%;
+  padding: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row-body {
+  display: flex;
+  justify-content: center;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
+.pic-container {
+  display: flex;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
