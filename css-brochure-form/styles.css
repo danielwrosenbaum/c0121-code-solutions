@@ -12,9 +12,6 @@ h2 {
 .headings {
   text-transform: uppercase;
   font-family: 'Brandon Grotesque', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  src: url('BrandonGrotesque-Medium.woff2') format('woff2');
   font-size: 12px;
   padding-left: 3%;
 }
@@ -22,9 +19,7 @@ h2 {
 form {
   justify-content: center;
   margin: auto;
-  width: auto;
-  padding-left: 30%;
-  padding-right: 30%;
+  width: 400px;
 }
 
 input,
@@ -39,17 +34,11 @@ select {
 input::placeholder {
   color: rgb(199, 195, 195);
   font-family: 'AtlasGrotesk', sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  src: url('AtlasGrotesk-Light-Web.woff2') format('woff2');
 }
 
 select {
   background-color: rgb(231, 231, 231);
   font-family: 'Brandon Grotesque', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  src: url('BrandonGrotesque-Regular.woff2') format('woff2');
 }
 
 button {
@@ -60,8 +49,5 @@ button {
   padding: 3px 18px 3px 18px;
   border-color: rgb(223, 67, 5);
   font-family: 'Brandon Grotesque', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  src: url('BrandonGrotesque-Regular.woff2') format('woff2');
   float: right;
 }
