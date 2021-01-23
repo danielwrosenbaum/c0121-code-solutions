@@ -46,19 +46,15 @@ h3 {
 .row-body {
   display: flex;
   justify-content: center;
-  margin-left: 17%;
-  margin-right: 17%;
+  margin: 0 auto;
 }
 
 .pic-container {
   display: flex;
   background-color: white;
-  margin-right: auto;
-  margin-left: auto;
   width: 80px;
   height: 80px;
   align-items: center;
   border-radius: 50%;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px auto 15px auto;
 }
