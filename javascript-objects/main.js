@@ -9,7 +9,7 @@ student.livesInIrvine = false;
 student.previousOccupation = 'AV Technician';
 console.log('Does the student live in Irvine? ', student.livesInIrvine);
 console.log('previous job: ', student.previousOccupation);
-
+console.log('Value of student: ', student);
 var vehicle = {
   make: 'Hyundai',
   model: 'Sonata',
