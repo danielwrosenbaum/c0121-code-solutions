@@ -12,4 +12,4 @@ console.log('What is an unknown? ', unknown);
 console.log('typeof unknown: ', typeof unknown);
 let never;
 console.log('What is never? ', never);
-console.log('typeof never: ', typeof never);
+console.log('typeof never:', typeof never);
