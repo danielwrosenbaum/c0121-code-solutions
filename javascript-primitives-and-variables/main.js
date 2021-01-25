@@ -8,7 +8,7 @@ console.log('typeof isCool: ', typeof isCool);
 console.log('Number of Pets: ', totalPets);
 console.log('typeof totalPets: ', typeof totalPets);
 const unknown = null;
-console.log('What is unknown? ', unknown);
+console.log('What is an unknown? ', unknown);
 console.log('typeof unknown: ', typeof unknown);
 let never;
 console.log('What is never?', never);
