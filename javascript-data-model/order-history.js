@@ -39,7 +39,6 @@ var orderHistory = [
       {
         type: 'video game accesory',
         title: 'Gamecube Controller Adapter',
-        author: undefined,
         itemCost: 15.98
       }
     ]
@@ -54,7 +53,6 @@ var orderHistory = [
       {
         type: 'video game accessory',
         title: 'GameCube Controller - Super Smash Bros. Edition (Nintendo Switch)',
-        author: undefined,
         itemCost: 94.95
       },
       {
@@ -67,5 +65,5 @@ var orderHistory = [
   }
 ];
 console.log(orderHistory[3].items[1].title);
-console.log(orderHistory[3].items[0].author);
+console.log(orderHistory[3].items[0].type);
 console.log(orderHistory[3].items[1].itemCost);
