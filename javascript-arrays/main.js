@@ -12,7 +12,7 @@ var students = ['john', 'paul', 'george', 'ringo'];
 var numberOfStudents = students.length;
 var studentString = 'There are ' + numberOfStudents + ' ' + 'students in the class';
 console.log(studentString);
-var lastIndex = students[3];
+var lastIndex = students[numberOfStudents - 1];
 console.log(lastIndex);
 var lastStudent = lastIndex;
 console.log('The last student in the array is', lastStudent);
