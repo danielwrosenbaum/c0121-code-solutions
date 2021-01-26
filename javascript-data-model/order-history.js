@@ -33,18 +33,29 @@ var orderHistory = [
     orderNumber: '114-28575557-9059409'
   },
   {
-    title: ['The Art of Sql', 'GameCube Controller - Super Smash Bros. Edition (Nintendo Switch)'],
-    type: ['book', 'video game accessory'],
-    author: [' Stephanie Faroult', ''],
+    title: 'GameCube Controller - Super Smash Bros. Edition (Nintendo Switch)',
+    type: 'video game accessory',
+    author: '',
     totalCost: 138.93,
-    itemCost: [33.99, 94.95],
+    itemCost: 94.95,
+    orderPlaced: 'July 3, 2020',
+    orderDelivered: 'July 5, 2020',
+    returnWindowClosed: 'August 4, 2020',
+    orderNumber: '113-2883177-2648248'
+  },
+  {
+    title: 'The Art of Sql',
+    type: 'book',
+    author: 'Stephanie Faroult',
+    totalCost: 138.93,
+    itemCost: 33.99,
     orderPlaced: 'July 3, 2020',
     orderDelivered: 'July 5, 2020',
     returnWindowClosed: 'August 4, 2020',
     orderNumber: '113-2883177-2648248'
   }
 ];
-console.log(orderHistory[3].title[1]);
-console.log(orderHistory[3].type[0]);
-console.log(orderHistory[3].itemCost[1]);
-console.log(orderHistory[3].returnWindowClosed);
+console.log(orderHistory[4].title);
+console.log(orderHistory[3].type);
+console.log(orderHistory[3].itemCost);
+console.log(orderHistory[4].returnWindowClosed);
