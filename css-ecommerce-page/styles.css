@@ -1,0 +1,42 @@
+.container {
+  width: 1080px;
+  margin: 0 auto;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  height: auto;
+}
+
+.col-5 {
+  width: 20%;
+  margin: 0 10px 5px 10px;
+  font-size: small;
+}
+
+.col-full {
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pic {
+  width: 100%;
+}
+
+.cost {
+  display: inline;
+  background-color: rgb(253, 243, 230);
+  padding: 2px;
+}
+
+.fade {
+  color: rgb(189, 187, 187);
+}
+
+.bold {
+  font-weight: bold;
+}
