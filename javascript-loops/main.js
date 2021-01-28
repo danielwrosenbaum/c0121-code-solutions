@@ -42,16 +42,11 @@ function logEachCharacter(string) {
 }
 function doubleAll(numbers) {
   var doubled = [];
-  var result;
   for (var i = 0; i < numbers.length; i++) {
-    result = numbers[i] * 2;
-    doubled.push(result);
+    doubled.push(numbers[i] * 2);
   }
   return doubled;
 }
-// I realize i didn't get the doubleAll function to work right.
-// I worked at it awhile, but just couldn't figure out how to
-// make multiple statements execute within the codeblock....
 
 function getKeys(object) {
   var keys = [];
