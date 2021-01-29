@@ -1,0 +1,44 @@
+body {
+  font-family: 'Barlow', sans-serif;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+p {
+  font-size: small;
+}
+
+.container {
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.column {
+  width: 25%;
+  margin: 0 12px 0 12px;
+  justify-content: center;
+}
+
+.big-pic {
+  width: 100%;
+  height: auto;
+}
+
+.small-pic {
+  width: 20%;
+  height: auto;
+}
