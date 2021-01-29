@@ -7,6 +7,10 @@ h2 {
   font-weight: 700;
 }
 
+p {
+  font-size: small;
+}
+
 .container {
   width: 85%;
   height: auto;
@@ -23,7 +27,7 @@ h2 {
   width: 100%;
 }
 
-.col-4 {
+.column {
   width: 25%;
   margin: 0 12px 0 12px;
   justify-content: center;
