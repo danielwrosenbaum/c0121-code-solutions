@@ -7,7 +7,6 @@
 .row {
   display: flex;
   align-items: baseline;
-  height: auto;
 }
 
 .col-5 {
@@ -19,8 +18,6 @@
 .col-full {
   width: 100%;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .pic {
