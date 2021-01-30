@@ -9,7 +9,6 @@ function includesSeven(array) {
   }
   if (i === 7) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
