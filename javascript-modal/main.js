@@ -11,7 +11,6 @@ onButton.addEventListener('click', modalOn);
 
 var noButton = document.querySelector('.modal-button');
 function modalOff(event) {
-  noModal.className = 'modal modalOff';
   overlayOn.className = 'overlay off';
   onButton.className = 'button buttonPosition';
 }
