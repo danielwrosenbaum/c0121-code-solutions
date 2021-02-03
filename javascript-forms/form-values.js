@@ -9,6 +9,6 @@ function submitEvent(event) {
   newObj.name = nameVal;
   newObj.message = msgVal;
   console.log('message data: ', newObj);
+  contactForm.reset();
 }
-
 contactForm.addEventListener('submit', submitEvent);
