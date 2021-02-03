@@ -5,7 +5,7 @@ function lightsOn(event) {
   if (skyLight.className === 'sky night') {
     lightBulb.className = 'container light';
     skyLight.className = 'sky day';
-  } else if (skyLight.className !== 'sky night') {
+  } else {
     lightBulb.className = 'container dark';
     skyLight.className = 'sky night';
   }
