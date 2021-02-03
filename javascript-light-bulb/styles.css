@@ -1,0 +1,27 @@
+.sky.night {
+  background-color: black;
+}
+
+.sky.day {
+  background-color: rgb(255, 248, 219);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25% auto 25% auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.container.dark {
+  background-color: rgb(37, 36, 36);
+  box-shadow: 0 0 10px 5px rgb(19, 18, 18);
+}
+
+.container.light {
+  background-color: rgb(250, 224, 110);
+  box-shadow: 0 0 10px 5px rgb(250, 222, 100);
+}
