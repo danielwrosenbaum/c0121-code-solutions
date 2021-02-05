@@ -11,11 +11,26 @@
   color: black;
 }
 
+.black-underline {
+  border-bottom: 2px solid;
+  color: black;
+}
+
 .green {
   color: green;
 }
 
+.green-underline {
+  border-bottom: 2px solid;
+  color: green;
+}
+
 .red {
+  color: red;
+}
+
+.red-underline {
+  border-bottom: 2px solid;
   color: red;
 }
 

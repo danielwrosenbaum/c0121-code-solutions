@@ -1,14 +1,18 @@
 var allLetters = document.querySelectorAll('span');
-// var keyText = document.querySelector('span.text');
+
+document.addEventListener('keydown', changeColor, false);
 
 function changeColor(event) {
-  for (var i = 0; i < allLetters.length; i++) {
-    allLetters[i].className = 'text underline';
-    if (event.key === allLetters[i].textContent) {
-      allLetters[i].className = 'text green';
-    } else if (event.key !== allLetters[i].textContent) {
-      allLetters.className = 'text red';
+  var i = 0;
+  allLetters[i].className = 'underline';
+  for (i; i < allLetters.length; ++i) {
+    allLetters[i].className = 'black';
+    var oneLetter = allLetters[i].textContent;
+    if (event.key === oneLetter) {
+      allLetters[i].className = 'green underline';
+      // console.log('letters:', oneLetter);
+    } else {
+      allLetters[i].className = 'red';
     }
   }
 }
-document.addEventListener('keydown', changeColor);
