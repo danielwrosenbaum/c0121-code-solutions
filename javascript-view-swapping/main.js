@@ -14,14 +14,14 @@ function checkFunction(event) {
         tabList[i].className = 'tab';
       }
     }
-  }
-  var dataValue = event.target.getAttribute('data-view');
-  for (i = 0; i < viewList.length; i++) {
-    var listAttribute = viewList[i].getAttribute('data-view');
-    if (dataValue === listAttribute) {
-      viewList[i].className = 'view';
-    } else {
-      viewList[i].className = 'hidden';
+    var dataValue = event.target.getAttribute('data-view');
+    for (i = 0; i < viewList.length; i++) {
+      var listAttribute = viewList[i].getAttribute('data-view');
+      if (dataValue === listAttribute) {
+        viewList[i].className = 'view';
+      } else {
+        viewList[i].className = 'hidden';
+      }
     }
   }
 }
