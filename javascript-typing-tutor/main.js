@@ -6,7 +6,7 @@ function changeColor(event) {
   var i = 0;
   allLetters[i].className = 'underline';
   for (i; i < allLetters.length; ++i) {
-    allLetters[i].className = 'black';
+    allLetters[i].className = 'text';
     var oneLetter = allLetters[i].textContent;
     if (event.key === oneLetter) {
       allLetters[i].className = 'green underline';
