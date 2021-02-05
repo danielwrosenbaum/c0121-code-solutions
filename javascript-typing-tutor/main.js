@@ -1,6 +1,6 @@
 var allLetters = document.querySelectorAll('span');
 
-document.addEventListener('keydown', changeColor, false);
+document.addEventListener('keydown', changeColor);
 
 function changeColor(event) {
   var i = 0;
