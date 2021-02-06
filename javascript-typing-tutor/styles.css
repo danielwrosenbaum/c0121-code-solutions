@@ -17,12 +17,12 @@
 }
 
 .green {
-  color: green;
+  color: rgb(116, 219, 116);
 }
 
 .green-underline {
   border-bottom: 2px solid;
-  color: green;
+  color: rgb(116, 219, 116);
 }
 
 .red {
@@ -36,4 +36,8 @@
 
 .underline {
   text-decoration: underline;
+}
+
+.hidden {
+  display: none;
 }

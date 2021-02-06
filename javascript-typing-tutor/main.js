@@ -1,18 +1,14 @@
 var allLetters = document.querySelectorAll('span');
+// var question = document.querySelector('h2');
+var i = 0;
+document.addEventListener('keydown', function (event) {
+  if (event.key === allLetters[i].textContent) {
+    allLetters[i].className = 'green';
+    i++;
+    allLetters[i].className = 'black-underline';
+  } else {
+    allLetters[i].className = 'red-underline';
 
-document.addEventListener('keydown', changeColor);
-
-function changeColor(event) {
-  var i = 0;
-  allLetters[i].className = 'underline';
-  for (i; i < allLetters.length; ++i) {
-    allLetters[i].className = 'text';
-    var oneLetter = allLetters[i].textContent;
-    if (event.key === oneLetter) {
-      allLetters[i].className = 'green underline';
-      // console.log('letters:', oneLetter);
-    } else {
-      allLetters[i].className = 'red';
-    }
   }
 }
+);
