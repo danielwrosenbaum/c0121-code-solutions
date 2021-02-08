@@ -1,12 +1,8 @@
 /* exported takeRight */
 function takeRight(array, count) {
-  var takeArray = [];
   var giveArray = [];
-  for (var i = 0; i < array.length; i++) {
-    var newValue = (array.length - count);
-    if (i < newValue) {
-      takeArray.push(array[i]);
-    } else {
+  for (var i = (array.length - count); i < array.length; i++) {
+    if (array[i] !== undefined) {
       giveArray.push(array[i]);
     }
   }
