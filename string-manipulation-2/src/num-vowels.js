@@ -1,17 +1,14 @@
 /* exported numVowels */
+
 function numVowels(string) {
+  var vowelNumber = 0;
   var numArray = [];
-  var vowel = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
-  var numString = string.split('');
-  var i = 0;
-
-  for (i; i < numString.length; i++) {
-    //   console.log('numstring: ', numString[i]);
-    //    console.log('vowel: ', vowel[i]);
-    if (numString[i] === vowel[i]) {
-
-      numArray.push(numString[i]);
-      //   console.log(numArray);
+  var lowerCaseString = string.toLowerCase();
+  for (var i = 0; i < lowerCaseString.length; i++) {
+    if (lowerCaseString.charAt(i) === 'a' || lowerCaseString.charAt(i) === 'e' || lowerCaseString.charAt(i) === 'i' ||
+      lowerCaseString.charAt(i) === 'o' || lowerCaseString.charAt(i) === 'u') {
+      vowelNumber++;
+      numArray.push(vowelNumber);
     }
 
   }
