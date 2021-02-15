@@ -5,10 +5,11 @@ function capitalizeWord(word) {
   var upperCase = word[0].toUpperCase();
   var newWord = upperCase + noFirstLetter;
   if (newWord === 'Javascript') {
-    var java = newWord[4].toUpperCase();
-    var newS = newWord.substr(5, newWord.length);
-    var javaS = newWord.substr(0, 4);
-    return javaS + java + newS;
+    // var java = newWord[4].toUpperCase();
+    // var newS = newWord.substr(5, newWord.length);
+    // var javaS = newWord.substr(0, 4);
+    // return javaS + java + newS;
+    return 'JavaScript';
   }
   return newWord;
 }
