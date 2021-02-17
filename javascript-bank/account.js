@@ -33,8 +33,6 @@ Account.prototype.getBalance = function () {
       total += this.transactions[i].amount;
     } else if (this.transactions[i].type === 'withdraw') {
       total -= this.transactions[i].amount;
-    } else {
-      return 0;
     }
   }
   return total;
