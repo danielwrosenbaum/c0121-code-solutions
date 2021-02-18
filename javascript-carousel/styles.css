@@ -1,0 +1,41 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.nav-bar {
+  margin: 25px auto;
+  justify-content: space-evenly;
+}
+
+.hidden {
+  display: none;
+}
+
+.arrow {
+  background-color: white;
+  border: none;
+  margin: 0 5% 0 5%;
+}
+
+.bottom {
+  border: none;
+  text-decoration: none;
+  padding: 20px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.arrow:active {
+  padding-top: 10px;
+}
