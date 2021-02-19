@@ -4,6 +4,10 @@ var $rightArrow = document.querySelector('.right');
 var $leftArrow = document.querySelector('.left');
 var $bottomButton = document.querySelectorAll('.bottom');
 var $navBar = document.querySelector('.nav-bar');
+var timer = setInterval(changeImage, 3000);
+$rightArrow.addEventListener('click', changeImageWithRightArrow);
+$leftArrow.addEventListener('click', changeImageWithLeftArrow);
+$navBar.addEventListener('click', changeButton);
 
 function changeImage() {
   var i = 0;
@@ -15,8 +19,7 @@ function changeImage() {
       if (i < $viewList.length) {
         $viewList[i].className = 'view';
         $circleButtons[i].className = 'circle fas fa-circle fa-3x';
-      }
-      if (i === $viewList.length) {
+      } else if (i === $viewList.length) {
         $viewList[0].className = 'view';
         $circleButtons[0].className = 'circle fas fa-circle fa-3x';
       }
@@ -24,8 +27,6 @@ function changeImage() {
 
   }
 }
-
-var timer = setInterval(changeImage, 3000);
 
 function changeImageWithRightArrow(event) {
   var j = 0;
@@ -45,7 +46,6 @@ function changeImageWithRightArrow(event) {
   }
 }
 
-$rightArrow.addEventListener('click', changeImageWithRightArrow);
 function changeImageWithLeftArrow(event) {
   var y = $viewList.length - 1;
   for (var x = 0; x < $viewList.length; x++) {
@@ -64,8 +64,6 @@ function changeImageWithLeftArrow(event) {
     }
   }
 }
-
-$leftArrow.addEventListener('click', changeImageWithLeftArrow);
 
 function changeButton(event) {
   clearInterval(timer);
@@ -91,4 +89,3 @@ function changeButton(event) {
   }
 
 }
-$navBar.addEventListener('click', changeButton);
