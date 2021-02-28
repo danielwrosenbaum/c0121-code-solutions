@@ -1,17 +1,18 @@
 /* exported zip */
 function zip(first, second) {
-  var x = 0;
+  var newArray =[];
   if (first.length <= second.length) {
-    var newArray = new Array(first.length)
-    for (var i =0; i < first.length; i++) {
-     newArray[x].push(first[i], second[i])
-    //  x++;
-    //  for (var j =0; j < second.length; j++) {
-    //    newArray.push(second[j])
-      //  x++;
-    //  }
-
+    newArray.length = first.length;
+    for (var i = 0; i < first.length; i++) {
+      newArray[i] = [];
+      newArray[i].push(first[i], second[i])
     }
-console.log(newArray)
+  } else {
+    newArray.length = second.length
+    for (var j = 0; j < second.length; j++) {
+      newArray[j] = [];
+      newArray[j].push(first[j], second[j]);
+    }
   }
+  return newArray;
 }
