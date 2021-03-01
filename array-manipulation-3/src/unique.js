@@ -1,7 +1,13 @@
 /* exported unique */
-
 function unique(array) {
-  var newSet = new Set(array)
-  var newArray = Array.from(newSet)
-  return newArray;
+  var newArray = [];
+  var returnArray = [];
+  for (var i =0; i < array.length; i++) {
+    var index = array[i];
+    if (newArray[index] === undefined) {
+      newArray[index] = true;
+      returnArray.push(index);
+    }
   }
+  return returnArray;
+}
