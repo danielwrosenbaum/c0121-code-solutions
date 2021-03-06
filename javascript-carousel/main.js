@@ -4,88 +4,59 @@ var $rightArrow = document.querySelector('.right');
 var $leftArrow = document.querySelector('.left');
 var $bottomButton = document.querySelectorAll('.bottom');
 var $navBar = document.querySelector('.nav-bar');
-var timer = setInterval(changeImage, 3000);
-$rightArrow.addEventListener('click', changeImageWithRightArrow);
-$leftArrow.addEventListener('click', changeImageWithLeftArrow);
+$rightArrow.addEventListener('click', nextImage);
+$leftArrow.addEventListener('click', prevImage);
 $navBar.addEventListener('click', changeButton);
 
-function changeImage() {
-  var i = 0;
-  for (i; i < $viewList.length; i++) {
-    if ($viewList[i].className === 'view') {
-      $viewList[i].className = 'view hidden';
-      $circleButtons[i].className = ('circle far fa-circle fa-3x');
-      i++;
-      if (i < $viewList.length) {
-        $viewList[i].className = 'view';
-        $circleButtons[i].className = 'circle fas fa-circle fa-3x';
-      } else if (i === $viewList.length) {
-        $viewList[0].className = 'view';
-        $circleButtons[0].className = 'circle fas fa-circle fa-3x';
-      }
-    }
+var counter = 0;
+var totalCounter = $viewList.length
+var timer = setInterval(nextImage, 3000)
+var pause = false;
 
-  }
+function deactivate(list, button) {
+  list[counter].className = 'view hidden';
+  button[counter].className = 'circle far fa-circle fa-3x';
 }
 
-function changeImageWithRightArrow(event) {
-  var j = 0;
-  for (j; j < $viewList.length; j++) {
-    if ($viewList[j].className === 'view') {
-      $viewList[j].className = 'view hidden';
-      $circleButtons[j].className = ('circle far fa-circle fa-3x');
-      j++;
-      if (j < $viewList.length) {
-        $viewList[j].className = 'view';
-        $circleButtons[j].className = 'circle fas fa-circle fa-3x';
-      } else {
-        $viewList[0].className = 'view';
-        $circleButtons[0].className = 'circle fas fa-circle fa-3x';
-      }
-    }
-  }
+function activate(list, button) {
+  list[counter].className = 'view';
+  button[counter].className = 'circle fas fa-circle fa-3x'
+}
+function nextImage() {
+  deactivate($viewList, $circleButtons);
+  counter = (counter +1) % totalCounter;
+  activate($viewList, $circleButtons);
 }
 
-function changeImageWithLeftArrow(event) {
-  var y = $viewList.length - 1;
-  for (var x = 0; x < $viewList.length; x++) {
-    if ($viewList[x].className === 'view') {
-      $viewList[x].className = 'view hidden';
-      $circleButtons[x].className = ('circle far fa-circle fa-3x');
-      x--;
-      if (x >= 0) {
-        $viewList[x].className = 'view';
-        $circleButtons[x].className = 'circle fas fa-circle fa-3x';
-      } else {
-        $viewList[y].className = 'view';
-        $circleButtons[y].className = 'circle fas fa-circle fa-3x';
-        x--;
-      }
-    }
+function prevImage() {
+  deactivate($viewList, $circleButtons);
+  if (counter === 0) {
+    counter = totalCounter - 1;
+  } else {
+    counter = (counter -1);
   }
+  activate($viewList, $circleButtons);
 }
 
 function changeButton(event) {
-  clearInterval(timer);
   if (event.target.matches('i')) {
-    for (var z = 0; z < $bottomButton.length; z++) {
-      if (event.target === $bottomButton[z]) {
-        $bottomButton[z].className = 'bottom active';
+    for (var i = 0; i < $bottomButton.length; i++) {
+      if (event.target === $bottomButton[i]) {
+        $bottomButton[i].className = 'bottom active';
       } else {
-        $bottomButton[z].className = 'bottom';
+        $bottomButton[i].className = 'bottom';
       }
     }
     var dataValue = event.target.getAttribute('data-view');
-    for (z = 0; z < $viewList.length; z++) {
-      var listAttribute = $viewList[z].getAttribute('data-view');
+    for (i = 0; i < $viewList.length; i++) {
+      var listAttribute = $viewList[i].getAttribute('data-view');
       if (dataValue === listAttribute) {
-        $viewList[z].className = 'view';
-        $circleButtons[z].className = 'circle fas fa-circle fa-3x';
+        $viewList[i].className = 'view';
+        $circleButtons[i].className = 'circle fas fa-circle fa-3x';
       } else {
-        $viewList[z].className = 'hidden';
-        $circleButtons[z].className = 'circle far fa-circle fa-3x';
+        $viewList[i].className = 'hidden';
+        $circleButtons[i].className = 'circle far fa-circle fa-3x';
       }
     }
   }
-
 }
