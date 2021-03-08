@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="row">
+    <button class="arrow left"><i class="fas fa-angle-left fa-7x"></i></button>
+    <img class="view" data-view="bulbasaur" src="images/001.png" alt="bulbasaur">
+    <img class="view hidden" data-view="charmander" src="images/004.png" alt="charmander">
+    <img class="view hidden" data-view="squirtle" src="images/007.png" alt="squirtle">
+    <img class="view hidden" data-view="pikachu" src="images/025.png" alt="pikachu">
+    <img class="view hidden" data-view="jigglypuff" src="images/039.png" alt="jigglypuff">
+    <button class="arrow right"><i class="fas fa-angle-right fa-7x"></i></button>
+  </div>
+  <div class="row">
+    <div class="nav-bar">
+      <button class="bottom active" ><i data-view="bulbasaur" class="circle current fas fa-circle fa-3x"></i></button>
+      <button class="bottom" ><i data-view="charmander" class="circle far fa-circle fa-3x"></i></button>
+      <button class="bottom" ><i data-view="squirtle" class="circle far fa-circle fa-3x"></i></button>
+      <button class="bottom" ><i data-view="pikachu" class="circle far fa-circle fa-3x"></i></button>
+      <button class="bottom" ><i data-view="jigglypuff" class="circle far fa-circle fa-3x"></i></button>
+    </div>
+
+  </div>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
