@@ -5,18 +5,15 @@ const jsonData = require('./data.json');
 
 app.get('/api/notes', (req, res) => {
   const newArray = [];
-  if (jsonData.notes === null) {
-    return newArray;
-  } else {
-    for (const objects in jsonData.notes) {
-      newArray.push(jsonData.notes[objects]);
-    }
-    res.json(newArray);
+  for (const objects in jsonData.notes) {
+    newArray.push(jsonData.notes[objects]);
   }
+  res.json(newArray);
+
 });
 app.get('/api/notes/:id', (req, res) => {
   const index = req.params.id;
-  if (!Math.sign(index)) {
+  if (parseInt(index, 10) < 0) {
     res.status(400).json({ error: index + ' ' + 'is not a positive integer' });
   } else {
     if (jsonData.notes[index] !== undefined) {
@@ -40,6 +37,7 @@ app.post('/api/notes', (req, res) => {
     jsonData.nextId++;
     fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), err => {
       if (err) {
+        console.error(err);
         res.status(500).json({ error: 'An unexpected error occurred.' });
       } else {
         res.status(201).send(newObj);
@@ -50,13 +48,14 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   const index = req.params.id;
-  if (!Math.sign(index)) {
+  if (parseInt(index, 10) < 0) {
     res.status(400).json({ error: index + ' ' + 'is not a positive integer' });
   } else {
     if (jsonData.notes[index] !== undefined) {
       delete jsonData.notes[index];
       fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), err => {
         if (err) {
+          console.error(err);
           res.status(500).json({ error: 'An unexpected error occurred.' });
         } else {
           res.sendStatus(204);
@@ -74,13 +73,14 @@ app.put('/api/notes/:id', (req, res) => {
     id: index,
     content: req.body.content
   };
-  if (!Math.sign(index) || req.body.content === undefined) {
+  if (parseInt(index, 10) < 0 || req.body.content === undefined) {
     res.status(400).json({ error: ':-(' });
   } else {
     if (jsonData.notes[index] !== undefined) {
       jsonData.notes[index] = newObj;
       fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), err => {
         if (err) {
+          console.error(err);
           res.status(500).json({ error: 'An unexpected error occurred.' });
         } else {
           res.status(200).send(newObj);
