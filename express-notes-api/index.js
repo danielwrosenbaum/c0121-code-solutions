@@ -13,7 +13,7 @@ app.get('/api/notes', (req, res) => {
 });
 app.get('/api/notes/:id', (req, res) => {
   const index = req.params.id;
-  if (parseInt(index, 10) < 0) {
+  if (parseInt(index, 10) < 1) {
     res.status(400).json({ error: index + ' ' + 'is not a positive integer' });
   } else {
     if (jsonData.notes[index] !== undefined) {
@@ -48,7 +48,7 @@ app.post('/api/notes', (req, res) => {
 
 app.delete('/api/notes/:id', (req, res) => {
   const index = req.params.id;
-  if (parseInt(index, 10) < 0) {
+  if (parseInt(index, 10) < 1) {
     res.status(400).json({ error: index + ' ' + 'is not a positive integer' });
   } else {
     if (jsonData.notes[index] !== undefined) {
@@ -73,7 +73,7 @@ app.put('/api/notes/:id', (req, res) => {
     id: index,
     content: req.body.content
   };
-  if (parseInt(index, 10) < 0 || req.body.content === undefined) {
+  if (parseInt(index, 10) < 1 || req.body.content === undefined) {
     res.status(400).json({ error: ':-(' });
   } else {
     if (jsonData.notes[index] !== undefined) {
