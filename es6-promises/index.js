@@ -5,5 +5,5 @@ dan.then(resolve => {
   console.log(resolve);
 });
 dan.catch(reject => {
-  console.log(reject);
+  console.log(reject.message);
 });
