@@ -28,4 +28,4 @@ const balance = account.reduce((accumulator, currentValue) => {
 }, 0);
 const composite = traits.reduce((accumulator, currentValue) => {
   return Object.assign(accumulator, currentValue);
-});
+}, {});
