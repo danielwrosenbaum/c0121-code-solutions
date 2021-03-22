@@ -12,13 +12,6 @@ const names = [
   'Donna'
 ];
 
-// const evenNumbers = numbers.filter(num => {
-//   if (num % 2 === 0) {
-//     return num;
-//   }
-//   return false;
-// });
-
 const overFive = numbers.filter(num => num > 5);
 const evenNumbers = numbers.filter(num => num % 2 === 0);
 const startWithE = names.filter(name => name.startsWith('E'));
