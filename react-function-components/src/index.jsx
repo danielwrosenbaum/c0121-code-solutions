@@ -5,5 +5,5 @@ function CustomButton() {
   return <button>Click Me!</button>;
 }
 const $div = document.getElementById('root');
-
-ReactDOM.render(CustomButton(), $div);
+const element = CustomButton();
+ReactDOM.render(element, $div);
