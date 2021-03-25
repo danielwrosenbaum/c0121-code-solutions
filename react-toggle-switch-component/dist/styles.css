@@ -47,13 +47,10 @@
   left: 5px;
   bottom: 5px;
   background-color: white;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 50%;
 }
 
 input:checked + .slider::before {
-  -webkit-transform: translateX(25px);
-  -ms-transform: translateX(25px);
   transform: translateX(25px);
 }
