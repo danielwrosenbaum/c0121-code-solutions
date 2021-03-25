@@ -1,0 +1,41 @@
+.hotButton {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  box-shadow: 5px 5px 5px black;
+}
+
+.hotButton:active {
+  box-shadow: 7px 7px black;
+  transform: translateY(5px);
+}
+
+.three {
+  background-color: purple;
+  color: white;
+}
+
+.six {
+  background-color: violet;
+  color: white;
+}
+
+.nine {
+  background-color: red;
+  color: white;
+}
+
+.twelve {
+  background-color: orange;
+  color: black;
+}
+
+.fifteen {
+  background-color: yellow;
+  color: black;
+}
+
+.eighteen {
+  background-color: white;
+  color: black;
+}
