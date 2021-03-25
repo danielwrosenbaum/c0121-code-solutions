@@ -13,14 +13,15 @@ class CustomButton extends React.Component {
   }
 
   render() {
+    let text;
     if (this.state.isClicked) {
-      this.props.text = 'Thanks Buddy';
+      text = 'Thanks Buddy';
     } else {
-      this.props.text = 'Click Me!';
+      text = 'Click Me!';
     }
     return (
         <button onClick={this.handleClick}>
-          {this.props.text}
+          {text}
           </button>
     );
   }
