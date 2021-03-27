@@ -11,6 +11,10 @@ const tabList = [
   {
     title: 'JavaScript',
     content: 'JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.'
+  },
+  {
+    title: 'Extra Heading',
+    content: 'Extra Content'
   }
 ];
 
@@ -40,26 +44,16 @@ export default class Accordion extends React.Component {
     }
   }
 
-  openTab() {
-    const isClicked = this.state.isClicked;
-    if (isClicked) {
-      return 'tab open';
-    } else {
-      return 'tab close';
-    }
-  }
-
   render() {
-    // const target = this.state.target;
-
-    const tabChange = this.openTab();
+    const target = this.state.target;
     const element = (<div className="container">
       {
         tabList.map((tab, index) => {
           return (
           <div key={index}>
-            <div id={index} className="topics" onClick={this.handleClick}>{tab.title}</div>
-              <p className={tabChange}>{tab.content}</p>
+            <div id={index} className={'topics ' + index} onClick={this.handleClick}>{tab.title}</div>
+            {index === parseInt(target, 10) &&
+                <p className={'tab open'}>{tab.content}</p>}
           </div>
           );
         })
