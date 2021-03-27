@@ -1,5 +1,15 @@
+.close {
+  display: none !important;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
+}
+
+.topics {
+  background-color: gray;
+  font-size: 2rem;
+  border: 1px solid black;
 }
