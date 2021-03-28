@@ -22,26 +22,53 @@ const imgList = [
     imageUrl: 'https://cdn.getyourguide.com/img/location/5c40d26a80a40.jpeg/88.jpg'
   }
 ];
-
+let startTimer;
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleActive = this.handleActive.bind(this);
+    this.handleCircle = this.handleCircle.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.timer = this.timer.bind(this);
+    this.timerOn = this.timerOn.bind(this);
     this.state = {
-      // isClicked: false,
       activeIndex: 0,
-      target: null
+      target: null,
+      timer: false
     };
+
   }
 
-  // handleActive() {
-  //   const activeIndex = this.state.activeIndex;
-  // }
+  handleCircle(event) {
+    clearInterval(startTimer);
+    this.setState({
+      activeIndex: parseInt(event.target.id, 10),
+      timer: false
+    });
+
+  }
+
+  timer() {
+    const activeIndex = this.state.activeIndex;
+    if (activeIndex < imgList.length - 1) {
+      this.setState({ activeIndex: activeIndex + 1 });
+    } else {
+      this.setState({ activeIndex: 0 });
+    }
+  }
+
+  timerOn() {
+    const timer = this.state.timer;
+    if (!timer) {
+      startTimer = setInterval(this.timer, 3000);
+      this.setState({ timer: true });
+    }
+  }
 
   handleClick(event) {
     const activeIndex = this.state.activeIndex;
+    clearInterval(startTimer);
     if (event.target.id === 'right') {
+      this.setState({ timer: false });
       if (activeIndex < imgList.length - 1) {
         this.setState({
           activeIndex: activeIndex + 1
@@ -52,6 +79,7 @@ export default class Carousel extends React.Component {
         });
       }
     } else if (event.target.id === 'left') {
+      this.setState({ timer: false });
       if (activeIndex > 0) {
         this.setState({
           activeIndex: activeIndex - 1
@@ -67,8 +95,6 @@ export default class Carousel extends React.Component {
 
   render() {
     const activeIndex = this.state.activeIndex;
-    // console.log(activeIndex, imgList.length);
-
     const element = (
       <div className='image-container'>
         {
@@ -76,7 +102,11 @@ export default class Carousel extends React.Component {
             return (
                 <div key={index} data={index}>
                   {index === activeIndex &&
+                  <>
                     <img src={pic.imageUrl} alt={pic.title} />
+
+                    <div className="title">{pic.title}</div>
+                    </>
                   }
                 </div>
             );
@@ -90,10 +120,10 @@ export default class Carousel extends React.Component {
         {
           imgList.map((pic, index) => {
             return (
-              <div id={index} key={index}>
+              <div className="circle" key={index} onClick={this.handleCircle}>
               { index === activeIndex
                 ? <i className="fas fa-circle"></i>
-                : <i className="far fa-circle"></i>}
+                : <i id={index} className="far fa-circle"></i>}
               </div>
             );
           })
@@ -101,7 +131,7 @@ export default class Carousel extends React.Component {
       </div>
     );
     return (
-      <div>
+      <div onLoad={this.timerOn}>
       <div className='container'>
         <div className='left nav'>
           <a className='button' onClick={this.handleClick}>
