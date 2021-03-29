@@ -1,0 +1,27 @@
+.close {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  box-shadow: 1px 1px 5px rgb(219, 218, 218);
+}
+
+.topics {
+  background-color: gray;
+  font-size: 2rem;
+  border: 2px solid black;
+  margin: 0.5px;
+}
+
+.topics:hover {
+  cursor: pointer;
+}
+
+.tab {
+  padding: 0 5px;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+}
