@@ -1,28 +1,5 @@
 import React from 'react';
 
-const imgList = [
-  {
-    title: 'Joshua Tree',
-    imageUrl: 'https://media.cntraveler.com/photos/602ad7f38951486cd995d6ff/16:9/w_2560%2Cc_limit/913068642'
-  },
-  {
-    title: 'Mojave',
-    imageUrl: 'https://earthjustice.org/sites/default/files/43222736891_2a445d868c_k.jpg'
-  },
-  {
-    title: 'Saguaro',
-    imageUrl: 'https://m.media-amazon.com/images/I/71rnc-o4I+L._AC_SL1024_.jpg'
-  },
-  {
-    title: 'Sedona',
-    imageUrl: 'https://casago.com/sedona/wp-content/uploads/sites/4/2019/09/sedonabanner.jpg'
-  },
-  {
-    title: 'Zion',
-    imageUrl: 'https://cdn.getyourguide.com/img/location/5c40d26a80a40.jpeg/88.jpg'
-  }
-];
-let startTimer;
 export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +16,7 @@ export default class Carousel extends React.Component {
   }
 
   handleCircle(event) {
-    clearInterval(startTimer);
+    clearInterval(this.startTimer);
     this.setState({
       activeIndex: parseInt(event.target.id, 10),
       timer: false
@@ -49,7 +26,7 @@ export default class Carousel extends React.Component {
 
   timer() {
     const activeIndex = this.state.activeIndex;
-    if (activeIndex < imgList.length - 1) {
+    if (activeIndex < this.props.items.length - 1) {
       this.setState({ activeIndex: activeIndex + 1 });
     } else {
       this.setState({ activeIndex: 0 });
@@ -59,17 +36,17 @@ export default class Carousel extends React.Component {
   timerOn() {
     const timer = this.state.timer;
     if (!timer) {
-      startTimer = setInterval(this.timer, 3000);
+      this.startTimer = setInterval(this.timer, 3000);
       this.setState({ timer: true });
     }
   }
 
   handleClick(event) {
     const activeIndex = this.state.activeIndex;
-    clearInterval(startTimer);
+    clearInterval(this.startTimer);
     if (event.target.id === 'right') {
       this.setState({ timer: false });
-      if (activeIndex < imgList.length - 1) {
+      if (activeIndex < this.props.items.length - 1) {
         this.setState({
           activeIndex: activeIndex + 1
         });
@@ -86,7 +63,7 @@ export default class Carousel extends React.Component {
         });
       } else {
         this.setState({
-          activeIndex: imgList.length - 1
+          activeIndex: this.props.items.length - 1
         });
       }
     }
@@ -95,10 +72,12 @@ export default class Carousel extends React.Component {
 
   render() {
     const activeIndex = this.state.activeIndex;
+    const { items } = this.props;
+
     const element = (
       <div className='image-container'>
         {
-          imgList.map((pic, index) => {
+          items.map((pic, index) => {
             return (
                 <div key={index} data={index}>
                   {index === activeIndex &&
@@ -118,7 +97,7 @@ export default class Carousel extends React.Component {
     const navElement = (
       <div className='nav-bar'>
         {
-          imgList.map((pic, index) => {
+          items.map((pic, index) => {
             return (
               <div className="circle" key={index} onClick={this.handleCircle}>
               { index === activeIndex
