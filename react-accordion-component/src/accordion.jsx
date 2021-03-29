@@ -5,7 +5,6 @@ export default class Accordion extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-      isClicked: false,
       target: null
     };
   }
