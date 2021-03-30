@@ -70,38 +70,26 @@ export default class App extends React.Component {
      * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
      * And specify the "Content-Type" header as "application/json"
      */
+    const index = this.state.todos.findIndex(todo => todoId === todo.todoId);
 
-    const isChecked = this.state.todos[todoId - 1].isCompleted;
-    if (!isChecked) {
-      fetch(`/api/todos/${todoId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({ isCompleted: true })
-      })
-        .then(res => res.json())
-        .then(data => {
-          const newerArray = [...this.state.todos];
-          newerArray.splice(todoId - 1, 1, data);
-          this.setState({ todos: newerArray });
-        });
-    } else {
-      fetch(`/api/todos/${todoId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({ isCompleted: false })
-      })
-        .then(res => res.json())
-        .then(data => {
-          const newerArray = [...this.state.todos];
-          newerArray.splice(todoId - 1, 1, data);
-          this.setState({ todos: newerArray });
-        })
-        .catch(error => console.error(error));
-    }
+    const isCompleted = this.state.todos[index].isCompleted;
+    const toggled = {
+      isCompleted: !isCompleted
+    };
+
+    fetch(`/api/todos/${todoId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(toggled)
+    })
+      .then(res => res.json())
+      .then(data => {
+        const newerArray = [...this.state.todos];
+        newerArray[index] = data;
+        this.setState({ todos: newerArray });
+      });
   }
 
   render() {
