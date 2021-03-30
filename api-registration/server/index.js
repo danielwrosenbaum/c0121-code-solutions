@@ -49,7 +49,6 @@ app.post('/api/auth/sign-up', (req, res, next) => {
    *
    * Hint: Insert statements can include a `returning` clause to retrieve the insterted row(s).
    */
-  // fetch('/api/auth/sign-up')
   argon2
     .hash(req.body.password)
     .then(hashedPassword => {
