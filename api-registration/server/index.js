@@ -60,7 +60,11 @@ app.post('/api/auth/sign-up', (req, res, next) => {
       const params = [username, hashedPassword];
       db.query(sql, params)
         .then(result => {
-          const [newUser] = result.rows;
+          const newUser = {
+            userId: result.rows[0].userId,
+            username: result.rows[0].username,
+            createdAt: result.rows[0].createdAt
+          };
           res.status(201).json(newUser);
         })
         .catch(err => next(err));
