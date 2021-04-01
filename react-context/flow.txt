@@ -1,0 +1,46 @@
+Create a file in the root of your react-context solution directory named flow.txt.
+For each feature in the application, describe the flow of the code in writing,
+including the client, server, and database.
+How does the code work?
+
+1. User Can Sign Up.
+- When the App is first loaded, the initial state of user is set to null, isAuthorizing to true and route is set to the current window location.
+- As long as isAuthorizing is set to true, nothing is returned and the page is rendered.
+- The user and route are destructured from state, whie the handleSignin & handleSignOut are destructured from this.
+- A const variable contextValue is created the holds the values of all the variables just created in the destructuring.
+- AppContext file creates a Context object and stores contextValue as its value. Now any components that subscribe to this Context object,
+will use this Context value.
+ - App.jsx's render method has created NavBar & PageContainer as its descendants from where the rest of the website will be generated from
+ - Authpage is a child of PageContainer - in its initial render, has destructured user, route and handleSign from the context previously created.
+ - if the route.path === the window.location of #sign-in, the user is encouraged to sign in
+ - if the route.path !== #sign-in, the user is told to create an account
+ - the authFrom is created in the return of the Authpage and given props of action = route.path & onSignin = handleSign
+ - authFrom sets intial state of username & password to empty strings so that each time the page is rendered those fields will be empty
+ - the handleChange event takes the name and value properties from the event.target and gives them to new const variables
+ - the state is set if the event.target values of either username or password are changed
+ - handleSubmit destructures the action property from this.props that was set in AuthPage as a prop of Authform and assigns to variable action when hitting submit
+ - the value in action is then sent to the server as a post request and checked in index.js if there is a username & password
+ - the password is THEN hashed with argon and inserted into the databse using sql, result is sent back with a token and if there is a user and token property,
+ the results are called in the onSignIn method that was set as a Prop of AuthForm and handled by the handleSignIn fuction.
+ - if the action is 'sign-up' the hash location will be switched to 'sign-in'
+2. User Can Sign In.
+- handleSignIn takes the user and token from the result and stores the token in local storage and sets the state with the value of user
+- now that there has been a hashchange, the componentdidmount sets the new route location as 'sign-in' and sets the state to the new user value and isauthorizing to false
+- because isAuthorizing is false, the new values of user, route, as well as the handleSignIn/handleSignOut methods of this are destructured and given to the conextValue object.
+- now the user is encouraged to signIn and the values submitted are run through handlesubmit again.
+- the action has changed to sign-in so the fect request is now using the app.post '/api/auth/sign-in'
+- it checks for  username and password from the values passed to the body, and uses sql to check if the username matches the username stored in the databse
+- by querying the db and running sql statment + req.body.username, then will get a result from a row that matches username
+- if no username matches, error is thrown
+- if username matches, a payload is created and jwt.sign writes the payload and hashedpassword into the token that is returned to the user along with payload
+- because the action == 'sign-in' that location isn't yet changed and the else if statement checks the result returned
+for user & token that are now handled by onSignIn.
+- handleSignIn takes the result and destructures user & token, stores them in locastorage and sets them as state for user
+- the action has changed to sign-in
+- up until this point, this.context.user has been null, so the home page never loaded.
+- now that value is no longer null, homepage loads and we get trolled
+3. User Can Stay Signed In.
+- because the user value is stored in localstorage & AppContext has not changed, the user will stay signed in as they navigate the page even though the hash location may change
+4. User Can Sign Out.
+- handleSignOut has been stored in contextValue and when activated, will remove the user data from localstorage and set the user state to null
+- when the user state is null, the contextValue is emptied and the user is redirected to the signin/sign out screen
